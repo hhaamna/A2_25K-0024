@@ -35,7 +35,7 @@ Buyer class is a derived class. It inherits from the User class, and the User cl
 
 ```cpp
 class Buyer : public User {
-private:
+protected:
     double budget;
     Favourite* savedVehicles[5];
     int savedCount;
@@ -65,7 +65,7 @@ The Seller class is also inheriting from the User class. Again, both inheritance
 
 ```cpp
 class Seller : public User {
-private:
+protected:
     Listing* myListings[5];
     int listingCount;
     double rating;
@@ -98,7 +98,7 @@ The Vehicle class also shows composition by using the CarDetail object in it.
 
 ```cpp
 class Car : public Vehicle {
-private:
+protected:
     int engineCC;
     string bodyType;
     int numSeats;
@@ -116,7 +116,7 @@ public:
 };
 
 class Bike : public Vehicle {
-private:
+protected:
     int engineCC;
     string bikeType;
     string ignition;
@@ -175,12 +175,11 @@ double calculateTax() const {
 Operator overloading is used to compare the vehicles. It is important to make it easier for the user to compare the car features before buying it.
 It is also used to check if two users have the same IDs, to find and remove this error easily. 
 '+' is used to add the mileages of the car to see the total easily.
- then == is used 
+ then == is used to compare prices of the car to find and compare cars of the same price.
 
 **OOP Concept: Operator Overloading**
 
 ```cpp
-// In Vehicle class
 int operator+(const Vehicle& other) const {
     return mileage + other.mileage;
 }
@@ -189,17 +188,14 @@ bool operator==(const Vehicle& other) const {
     return (int)(price / 500000) == (int)(other.price / 500000);
 }
 
-// In User class
 bool operator==(const User& other) const {
     return userID == other.userID;
 }
 
-// In Marketplace class
 int operator+(const Marketplace& other) const {
     return listingCount + other.listingCount;
 }
 
-// In Listing class
 bool operator==(const Listing& other) const {
     return city == other.city;
 }
@@ -220,7 +216,7 @@ we are also using the == operator to compare two listings by their cities.
 
 ```cpp
 class Listing : public AbstractListing {
-private:
+protected:
     const int listingID;
     Vehicle* vehicle;
     string city;
