@@ -374,6 +374,7 @@ void displayAllListings() const {
 <img width="230" height="174" alt="image" src="https://github.com/user-attachments/assets/c6635e69-449b-40bb-bf1b-945911bafaf8" />
 
 The search functions loop through all the listings in the Marketplace and calls getVehicle function for each listing, to get their data. This is done though the use of base class pointer, which is Vehicle*, and the function displays the information for each object.
+Feature made for easily searching for a vehicle through desired filter
 **OOP Concepts: Polymorphism, Abstraction**
 
 ```cpp
@@ -422,6 +423,7 @@ void searchByMileage(int maxMileage) const {
 <img width="1040" height="507" alt="image" src="https://github.com/user-attachments/assets/85f71ef6-e237-4f4f-98a8-b078aa11882f" />
 
 For the favourites, the buyer class creates a list of Favourite objetcs. Favourite stores a pointer of the Vehicle which is used to access different functions for all the favourited items, all defined in the AbstractVehicle class. No matter whichever vehicle is used, whether Car, or Bike, the same interface is used each time!
+This function is used so that the users can bookmark their items to avoid losing them.
 
 **OOP Concepts: Polymorphism, Inheritance**
 
@@ -453,6 +455,7 @@ void toggleAlert() {
 
 The Message class uses the User pointers for the senders and receivers of messages. Both the Buyer and Seller are inheriting from the same User class, so they can be accessed using the getName function.
 The previously introduced friend function is used over here with the function inspectMessage, that can access the private memberes such as messageID.
+This function allows the communication between the buyer and seller.
 **OOP Concepts: Inheritance, Polymorphism, Friend Functions**
 
 ```cpp
@@ -492,11 +495,9 @@ void inspectMessage(const Message& m) {
 ---
 
 ## Seller Updates
+<img width="380" height="160" alt="image" src="https://github.com/user-attachments/assets/598fa81a-589d-4deb-8772-c01fc4f8e2d4" />
 
-> **Screenshot to take:** Capture the section under `SELLER UPDATES`. It should show the price of listing index 0 being updated to Rs.3100000 for seller s1 (Hassan Raheem), followed by his full listing details after the price change.
-
-The `Seller` class stores `Listing*` pointers and calls `updatePrice()` and `displayListing()` on them. Because `Listing` inherits from `AbstractListing`, the interface used here is consistent regardless of any future listing subtype — demonstrating how **abstraction** keeps code flexible.
-
+Again using Listing pointers, we call the updatePrice function and display function. This way, the sellar can see all the updates to their listings made.
 **OOP Concepts: Abstraction, Inheritance**
 
 ```cpp
@@ -523,9 +524,9 @@ void viewMyListings() const {
 
 ## Vehicle Inspections
 
-> **Screenshot to take:** Capture the section under `VEHICLE INSPECTIONS`. It should show two inspection reports for Corolla and Civic (inspector name, scores for engine/body/interior, overall score, certified status, remarks), then certification results and the passing check for Corolla.
+<img width="940" height="523" alt="image" src="https://github.com/user-attachments/assets/128ca8fe-7d52-4bd7-8a9b-2c163a1d6bde" />
 
-The `Inspection` class holds a `Vehicle*` and accesses it polymorphically via `getCompany()` and `getModel()`. The `calculateOverallScore()` and `isPassing()` methods demonstrate clean encapsulation of inspection logic, and `certifyVehicle()` sets the certification based on computed score.
+Inspection class uses the Vehicle* pointer aswell. This function is implemented so the users can get a detailed inspection for their car so they can list it, or get a listed car inspected before buying, to confirm its condition.
 
 **OOP Concept: Polymorphism, Encapsulation**
 
