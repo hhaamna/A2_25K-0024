@@ -568,3 +568,9 @@ public:
 };
 ```
 ---
+## UML CLASS DIAGRAM
+> I uploaded the UML diagram as a OneNote file since that is the software that i used to make it. I tried my best to convert it to any other form or pdf form, but it was not working due to the diagram formatting. I hope this is an acceptable format.
+
+Snapshot of UML diagram:
+<img width="1008" height="825" alt="image" src="https://github.com/user-attachments/assets/5b97ef1a-fc44-4307-923c-e2b05eaa3711" />
+
